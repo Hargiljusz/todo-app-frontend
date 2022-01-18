@@ -52,14 +52,19 @@ class UserContextProvider extends react.Component{
 
     logout = () =>{
         localStorage.clear()
-        this.setState({user:{  
-            username:'',
-            jwt:'',
-            bearerToken:'',
-            roles:[],
-            userId:'',
-            name:''
-        },isLogin: false,loading:false,isAdmin:false}) 
+        axios.post('/api/auth/logout')
+        .then(r=>{
+            this.setState({user:{  
+                username:'',
+                jwt:'',
+                bearerToken:'',
+                roles:[],
+                userId:'',
+                name:''
+            },isLogin: false,loading:false,isAdmin:false}) 
+        })
+        .catch(err=>console.log(err))
+        
     }
 
 
