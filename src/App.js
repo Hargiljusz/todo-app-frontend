@@ -23,6 +23,7 @@ function App() {
     padding: '10px',
     paddingTop: '20px'
   }
+  console.log("TEST")
   
   return (
     <div className="App" >
